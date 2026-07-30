@@ -137,6 +137,13 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
+        .spotify-container {
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
         .content-box {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -151,23 +158,29 @@
             box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
         }
 
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+        .photo-section {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 16px;
-            margin-bottom: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .photo-section img {
             width: 100%;
-            height: 100%;
-            border: 0;
+            border-radius: 12px;
+            display: block;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .photo-caption {
+            font-size: 15px;
+            color: #ffd1dc;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .heart {
@@ -204,9 +217,9 @@
     <div class="card" id="main-content">
         <div class="welcome-title">❤️ malak ❣️ ❤️</div>
         
-        <!-- فيديو أغنية تووليت - حبيبي ده -->
-        <div class="video-container">
-            <iframe id="youtube-player" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- مشغل أغنية تووليت - حبيبي ده من Spotify -->
+        <div class="spotify-container">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0nHYCn2olPodsflSaKiDt3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <div class="content-box">اولا كده بحبك يا هطله 😂
@@ -215,6 +228,13 @@
 ومهما اوصفلك انا بحبك قد اي مش هعرف برضو ولا انتي تعرفي انا بحبك قد اي وبتمني نفضل مع بعض دايما ومفيش حاجه تبعدنا عن بعض 🤲🏻♥
 بس انتي تعقلي كده وترزمني شويه يا عجله 😂😘
 ويارب تحققي كل اللي نفسك فيه ونبقي مع بعض في بيت واحد في الاخر ♥👸🏻</div>
+
+        <!-- صورة ملك في آخر الجواب -->
+        <div class="photo-section">
+            <img src="https://i.ibb.co/C03V93y/image.jpg" alt="ملك الحولة">
+            <div class="photo-caption">ملك الحوله الصوره دي عمري ما همسحها عشان ازلك بيها علطول 😂😘</div>
+        </div>
+
     </div>
 
     <script>
@@ -223,13 +243,10 @@
             const lockScreen = document.getElementById('lock-screen');
             const mainContent = document.getElementById('main-content');
             const errorMsg = document.getElementById('error-msg');
-            const ytPlayer = document.getElementById('youtube-player');
 
             if (passwordInput === 'malouka' || passwordInput === 'malouka👸🏻❣️') {
                 lockScreen.style.display = 'none';
                 mainContent.style.display = 'block';
-                // تشغيل الأغنية أوتوماتيك
-                ytPlayer.src = "https://www.youtube.com/embed/S2pE8I0c_3c?autoplay=1";
                 createHearts();
             } else {
                 errorMsg.style.display = 'block';
