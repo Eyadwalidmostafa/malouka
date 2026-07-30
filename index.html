@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malak</title>
+    <title>Malak ❣️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
 
@@ -22,6 +22,7 @@
             justify-content: center;
             padding: 20px;
             color: #fff;
+            overflow-x: hidden;
         }
 
         .card {
@@ -30,16 +31,13 @@
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 24px;
-            padding: 40px 30px;
+            padding: 40px 25px;
             width: 100%;
-            max-width: 420px;
+            max-width: 450px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+            position: relative;
+            z-index: 10;
         }
 
         .lock-icon {
@@ -68,11 +66,6 @@
             margin-bottom: 25px;
         }
 
-        .input-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
         input[type="password"] {
             width: 100%;
             padding: 14px 20px;
@@ -83,12 +76,12 @@
             font-size: 16px;
             text-align: center;
             outline: none;
+            margin-bottom: 15px;
             transition: all 0.3s ease;
         }
 
         input[type="password"]:focus {
             border-color: #ff758c;
-            background: rgba(0, 0, 0, 0.3);
             box-shadow: 0 0 15px rgba(255, 117, 140, 0.4);
         }
 
@@ -103,12 +96,6 @@
             font-weight: 700;
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(255, 117, 140, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        button.btn-login:hover {
-            opacity: 0.95;
-            transform: scale(1.02);
         }
 
         .error-msg {
@@ -121,7 +108,7 @@
 
         #main-content {
             display: none;
-            animation: fadeIn 0.8s ease forwards;
+            animation: fadeIn 1s ease forwards;
         }
 
         @keyframes fadeIn {
@@ -130,7 +117,7 @@
         }
 
         .welcome-title {
-            font-size: 28px;
+            font-size: 26px;
             color: #ff7eb3;
             margin-bottom: 15px;
             font-weight: 800;
@@ -140,36 +127,77 @@
             background: rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             padding: 20px;
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 16px;
-            line-height: 1.8;
-            color: #f3f4f6;
+            line-height: 1.9;
+            color: #ffffff;
+            text-align: right;
+            white-space: pre-line;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .music-player {
+            margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        audio {
+            width: 100%;
+            height: 35px;
+        }
+
+        /* القلوب الطايرة خلفية */
+        .heart {
+            position: fixed;
+            font-size: 20px;
+            color: #ff7eb3;
+            animation: floatUp 4s linear infinite;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- صفحة طلب كلمة السر -->
+    <!-- القلوب الطايرة -->
+    <div id="hearts-container"></div>
+
+    <!-- شاشة طلب كلمة السر -->
     <div class="card" id="lock-screen">
         <div class="lock-icon">🔒</div>
-        <h2>مرحباً يا ملك ✨</h2>
-        <p>اكتبي كلمة السر عشان تفتحي المفاجأة 💖</p>
+        <h2>مرحباً يا malak ❣️</h2>
+        <p>اكتبي كلمة السر عشان تفتحي المفاجأة 👸🏻❣️</p>
         
-        <div class="input-group">
-            <input type="password" id="password-input" placeholder="ادخلي كلمة السر هنا...">
-        </div>
-        
+        <input type="password" id="password-input" placeholder="ادخلي كلمة السر هنا...">
         <button class="btn-login" onclick="checkPassword()">دخول ✨</button>
         <div class="error-msg" id="error-msg">❌ كلمة السر غير صحيحة، حاولي تاني!</div>
     </div>
 
-    <!-- المحتوى الأصلي للموقع بيظهر بعد كتابة كلمة السر صح -->
+    <!-- شاشة الرسالة والأغنية -->
     <div class="card" id="main-content">
-        <div class="welcome-title">❤️ أهلاً يا ملك ❤️</div>
-        <div class="content-box">
-            تم فتح الصفحة بنجاح! 🎉<br>
-            المفاجأة والرسالة الخاصة بيكي جاهزة هنا! ✨
+        <div class="welcome-title">❤️ malak ❣️ ❤️</div>
+        
+        <div class="music-player">
+            <p style="margin-bottom: 5px; font-size: 13px; color: #ff7eb3;">🎵 شغالي الأغنية واسمعي الرسالة (حبيبي ده - توليت)</p>
+            <audio id="bg-music" controls loop>
+                <source src="https://cdns-preview-d.dzcdn.net/stream/c-d32cd6575cb2ee62a3f2d2b5ff825b7a-3.mp3" type="audio/mpeg">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
         </div>
+
+        <div class="content-box">اولا كده بحبك يا هطله 😂
+الجواب ده انا عملتو كده حاجه جديده قولت ممكن ترضي عني شويه واسمع منك كلمه واحده عدله بدل مانت منشفه ريئ كده 😂
+بس بجد والله بحبك جدا 😍
+ومهما اوصفلك انا بحبك قد اي مش هعرف برضو ولا انتي تعرفي انا بحبك قد اي وبتمني نفضل مع بعض دايما ومفيش حاجه تبعدنا عن بعض 🤲🏻♥
+بس انتي تعقلي كده وترزمني شويه يا عجله 😂😘
+ويارب تحققي كل اللي نفسك فيه ونبقي مع بعض في بيت واحد في الاخر ♥👸🏻</div>
     </div>
 
     <script>
@@ -178,24 +206,35 @@
             const lockScreen = document.getElementById('lock-screen');
             const mainContent = document.getElementById('main-content');
             const errorMsg = document.getElementById('error-msg');
+            const music = document.getElementById('bg-music');
 
-            // كلمة السر المحددة
-            if (passwordInput === 'malouka') {
+            if (passwordInput === 'malouka👸🏻❣️' || passwordInput === 'malouka') {
                 lockScreen.style.display = 'none';
                 mainContent.style.display = 'block';
+                music.play().catch(e => console.log("Auto-play prevented"));
+                createHearts();
             } else {
                 errorMsg.style.display = 'block';
                 document.getElementById('password-input').value = '';
-                document.getElementById('password-input').focus();
             }
         }
 
-        // إمكانية الضغط على Enter للدخول
         document.getElementById('password-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
+            if (e.key === 'Enter') checkPassword();
         });
+
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(heart);
+                setTimeout(() => heart.remove(), 4000);
+            }, 300);
+        }
     </script>
 </body>
 </html>
